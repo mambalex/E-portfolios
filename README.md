@@ -7,5 +7,5 @@ This README would normally document whatever steps are necessary to get your app
 This repository is for com9900 project
 
 ### Group members ###
-Zhiqin Zhang (Alex)   z5105196
-Han    Zhang (Hank)   z5043158
+ 1. Zhiqin  Zhang (Alex)     z5105196		
+ 2. Han	    Zhang (Hank)     z5043158
