@@ -20,8 +20,6 @@ Prepare to start database design.
 Week 2:
 
 1. Formed a group of 4
-2. Created the Trello & Bitbucket accounts for the team
-3. Discussed 3 topics with the team in the lab,I prefer to pick the second topic
 
 Things to do next week:
 1. Figure out what skills our group members have
