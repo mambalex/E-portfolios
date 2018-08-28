@@ -1,4 +1,23 @@
-Week 2
+COMP9900 Work Diary
+Name: Han Zhang
+zID: z5043158
+
+Week5:
+Database setup completed.
+Things to do next week:
+Prepare to start backend work.
+
+Week4:
+Completed ER diagram design.
+Things to do next week:
+Prepare to start building and testing the database.
+
+Week3:
+Finished technical part of proposal.
+Things to do next week:
+Prepare to start database design.
+
+Week 2:
 
 1. Formed a group of 4
 2. Created the Trello & Bitbucket accounts for the team
