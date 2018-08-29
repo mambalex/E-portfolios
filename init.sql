@@ -43,7 +43,7 @@ CREATE TABLE job_and_skill
     PRIMARY KEY ("j_Id", "s_ID")
 );
 
-CREATE TABLE "user"
+CREATE TABLE user
 (
     "Id" uuid NOT NULL,
     username character(40) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE "user"
     type integer NOT NULL,
     photo text,
     PRIMARY KEY ("Id")
-)
+);
 
 CREATE TABLE course_list
 (
