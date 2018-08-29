@@ -43,7 +43,7 @@ CREATE TABLE job_and_skill
     PRIMARY KEY ("j_Id", "s_ID")
 );
 
-CREATE TABLE user
+CREATE TABLE user_info
 (
     "Id" uuid NOT NULL,
     username character(40) NOT NULL,
