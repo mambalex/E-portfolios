@@ -1,0 +1,335 @@
+body{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.main-container{
+	margin: 0 !important;
+	padding: 0 !important;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+
+.main-container nav{
+	width: 100%;
+	height: 60px;
+	border-top: 5px solid #ffcc00;
+	background-color:  #231f20;
+}
+
+
+.main-container nav .main-page a{
+	margin-top: 12px;
+	margin-left: 20px;
+	color: white;
+	float: left;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+
+.main-container nav ul{
+	color: white;
+	float: right;
+	list-style:none;
+	margin-top: 0;
+
+}
+.main-container nav ul li{
+	height: 55px;
+	width: 80px;
+	/*border:1px solid white;*/
+	display: inline-block;
+	text-align: center;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+.main-container nav ul li a{
+	text-decoration: none;
+	color: white;
+}
+
+.main-container nav ul li:hover{
+	background-color: #ffcc00;
+}
+
+.main-container nav ul li:hover >a{
+	color: black;
+}
+
+.result{
+	display: flex;
+	position: relative;
+	margin: 5% 0;
+	/*border: 2px solid red;*/
+}
+
+.result  .img{
+	position: relative;
+	text-align: center;
+	width: 100%;
+	overflow: hidden;
+}
+
+.result img{
+	display: block;
+  	width: 100%;
+}
+
+.result .layer{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 1;
+}
+
+.result .left{
+	position: absolute;
+	left: 5%;
+	top: 5%;
+	bottom: 10%;
+	width: 20%;
+	z-index: 2;
+	background: rgb(0,0,0,0.6);
+	border-radius:  10px;
+	border-color: rgb(64,64,64);
+
+}
+
+.result .left p{
+	font-size: 20px;
+	padding-top: 10%;
+	padding-left: 8%;
+	color: white;
+}
+.result .left i{
+	padding-right: 10px;
+	margin-bottom: 20px;
+}
+.result .left .tags{
+	height: 200px;
+	/*border: 1px solid white;*/
+}
+.result .left .tags ul{
+	color: white;
+	list-style:none;
+}
+
+.result .left .tags ul li{
+	float: left;
+	width: 40%;
+	margin-right: 10px;
+	margin-bottom: 13px;
+	border: 1px solid white;
+	text-align: center;
+}
+
+
+.result .left .job-type ul{
+	color: white;
+	list-style:none;
+	margin-top: 20px;
+	height: 200px;
+	/*border-bottom: 1px solid white;*/
+}
+
+.result .left .job-type ul li{
+	float: left;
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 13px;
+	border: 1px solid white;
+	text-align: center;
+}
+
+
+.result .right{
+	position: absolute;
+	right: 10%;
+	top: 5%;
+	bottom: 10%;
+	width: 60%;
+	z-index: 2;
+	background: rgb(0,0,0,0.8);
+	border-radius:  10px;
+	border-color: rgb(64,64,64);
+}
+
+.result .right .right-container{
+	display: flex;
+	flex-direction: column;
+	border: 1px solid white;
+	margin: 6% 8% 8% 8%;
+	width: 84%;
+	height: 84%;
+}
+
+.result .right .right-container .job{
+	height: 40%;
+	width: 100%;
+	border: 1px solid white;
+}
+
+.result .right .right-container .job p{
+	text-decoration: none;
+	cursor: pointer;
+	color: #ffcc00 !important;
+	margin-top:20px;
+	margin-left: 50px;
+	font-size: 23px;
+}
+
+.result .right .right-container .job .description{
+	color: white;
+	margin-top:20px;
+	margin-left: 50px;
+	font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+	position: relative;
+	height: 80px;
+	width: 100%;
+	background-color: rgb(50,50,50);
+	display: inline-block;
+}
+
+.footer .left{
+	position: absolute;
+	left: 20px;
+	top: 40%;
+}
+
+.footer .left a{
+	color: #7f7f7f;
+	margin: auto 7px;
+	text-decoration:none;
+}
+
+.footer .right{
+	position: absolute;
+	top: 40%;
+	left: 35%;
+	color: #7f7f7f;
+}
+
+.footer .left a:hover{
+	color: white;
+
+}
+
+.share {
+	position: absolute;
+	top: 30%;
+	right: 20px;
+	/*background-color: rgb(242,242,242);*/
+  	text-align: right;
+
+}
+
+/* buttons */
+
+.share a {
+	width: 30px;
+  	height: 30px;
+  	display: inline-block;
+  	margin: 3px;
+  	border-radius: 50%;
+  	font-size: 20px;
+  	color: #fff;
+	opacity: 0.75;
+	transition: opacity 0.15s linear;
+}
+
+.share a:hover {
+	opacity: 1;
+}
+
+@media screen and (max-width: 790px) {
+	.share{display: none;}
+}
+
+
+/* icons */
+
+.share i {
+  	position: relative;
+  	top: 40%;
+  	right: 30%;
+  	transform: translateY(-50%);
+}
+
+.share-ic{
+	background: rgb(50,50,50);
+}
+
+/* colors */
+
+.facebook:hover {	color: #3b5998;}
+.facebook i{
+	right: 40%;
+}
+
+.twitter:hover {	color: #55acee;}
+.twitter i{
+	top:43%;
+	right: 20%}
+
+.googleplus:hover {	color: #dd4b39;}
+.googleplus i{
+	right:10%;}
+
+.linkedin:hover {	color: #0077b5;}
+.linkedin i{
+	right:20%;}
+
+.pinterest:hover {	color: #cb2027;
+}
+.pinterest i{
+	right:25%;
+	top: 43%}
+
+
+
+
