@@ -112,8 +112,95 @@ body{
 	margin-top: 50px;
 	margin-left: 100px;
 	margin-bottom: 20px;
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 }
+
+.main-container .middle .content .skill-set{
+	display: flex;
+	flex-direction: column;
+}
+
+.main-container .middle .content .skill-set .title{
+	/*border: 1px solid black;*/
+	height: 80px;
+	background: #ffcc00;
+	/*background: rgb(47,47,47);*/
+	border: 2px solid black;
+	letter-spacing: 0.1em;
+	font-family: Arial;
+}
+
+.main-container .middle .content .skill-set h2{
+	padding-top: 5%;
+	height: 100%;	
+	text-align: center;
+	margin-top: 0;
+}
+
+.main-container .middle .content .skill-set .bottom{
+	border: 2px solid black;
+	border-top: none;
+/*	background-color:  rgb(245,245,245);*/
+}
+
+
+.main-container .middle .content .skill-set .skills{
+	/*border: 1px solid black;*/
+	margin-top: 10%;
+	margin-left: 27%;
+	display: inline-block;
+	width: 70%;
+}
+
+
+
+.main-container .middle .content .skill-set .skills li{
+	width: 60%;
+	list-style: initial;
+	/*padding-left: 30px;*/
+	margin-left: 0;
+	margin-right: 20%;
+	padding-bottom: 10px;
+	position: relative;
+}
+
+.main-container .middle .content .skill-set .skills li .text{
+	width:70%;
+
+}
+
+.main-container .middle .content .skill-set .skills i{
+	margin-right: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.main-container .middle .content .skill-set form{
+	text-align: center;
+	margin: 10% 0;
+		/*border: 1px solid black;*/
+}
+
+.main-container .middle .content .skill-set form input{
+		width: 200px;
+		height: 20px;
+}
+
+.main-container .middle .content .skill-set form button{
+	/*border: 1px solid red;*/
+	margin: 15px auto 5px auto;
+	text-align: center;
+	width: 70px;
+	height: 25px;
+	color: #ffffff;
+	font-size: 15px;
+	background: #231f20;
+}
+
+
+
+
 
 
 
