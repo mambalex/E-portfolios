@@ -125,28 +125,244 @@ body{
 
 .main-container .middle .content .home{
 	width: 100%;
-	height: 700px;
-	border: 1px solid black;
+	/*border: 1px solid rgb(233,233,233);*/
+	display: flex;
+	flex-direction: column;
 }
 
 .main-container .middle .content .home .top{
+	display: flex;
 	height: 150px;
 	width: 100%;
-	border: 1px solid black;
+	border: 1px solid #ffcc00;
+	background-color: #ffcc00;
+	/*color: white;*/
 
+}
+.main-container .middle .content .home>.bottom{
+		border: 1px solid rgb(233,233,233);
+		border: 1px solid #ffcc00;
+		display: flex;
+		flex-direction: column;
+		padding: 0 3%;
+		/*padding-right: 5%;*/
+		/*background-color: rgb(61,62,66);*/
+		/*color: white;*/
+		/*font-weight: 300;*/
+		/*font-family: "Open Sans"*/
 }
 .main-container .middle .content .home .top .name{
 	display: inline-block;
 	font-size: 50px;
 	font-family: Ambroise;
+	width: 40%;
+	padding-left: 20px;
 }
+
+.main-container .middle .content .home .top .top-contact{
+/*	display: none;*/
+	width: 55%;
+	height: 150px;
+	/*display: flex;*/
+	flex-direction: column;
+	margin-top: 10%;
+	font-size: 12px;
+	/*border: 1px solid black;*/
+}
+
+
+.main-container .middle .content .home .top .top-contact .bottom{
+	width: 100%;
+	/*border: 2px solid black;*/
+	border-top: none;
+}
+
+.main-container .middle .content .home .top .top-contact .bottom .contact-l{
+	margin: 1% 2%;
+	margin-left: 7%;
+	/*padding-right: 40px;*/
+
+}
+
+.main-container .middle .content .home .top .top-contact .bottom .contact-l .text{
+	display: inline-block;
+	width: 60px;
+}
+
+.main-container .middle .content .home .top .top-contact .bottom .contact-icon{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.main-container .middle .content .home .top .top-contact .bottom .email,.phone,.github{
+	display: inline-block;
+}
+
 .main-container .middle .content .home .top .image{
 	display: inline-block;
-	float: right;
+	margin-right: 0;
 	border: 1px solid black;
 	width: 100px;
 	height: 100%;
 }
+
+.main-container .middle .content .home .line-text .text{
+	margin-left: 3%;
+	margin-bottom: 1%;
+	/*color: #ffcc00;*/
+	font-size:18px;
+	font-weight: 500;
+}
+.main-container .middle .content .home .line-text .line{
+	border: 1px solid #ffcc00;
+}
+
+
+/*about me*/
+
+
+.main-container .middle .content .home .about-me{
+	width: 100%;
+	/*margin-right:3%;*/
+	margin-top: 5%;
+}
+
+.main-container .middle .content .home .about-me .line-text{
+/*	min-width: 90%;
+	margin: 0 2%;
+	margin-top: 5%;*/
+}
+.main-container .middle .content .home .about-me .line-text .text{
+	margin-left: 3%;
+	margin-bottom: 1%;
+	/*color: #ffcc00;*/
+	font-size:18px;
+	font-weight: 500;
+}
+.main-container .middle .content .home .about-me .line-text .line{
+	border: 1px solid #ffcc00;
+}
+
+.main-container .middle .content .home .about-me .profile{
+	margin: 0 5%;
+}
+
+
+
+/*home-tech-skills*/
+
+.main-container .middle .content .home .home-tech-skills{
+	width: 100%;
+	/*margin-right:3%;*/
+	margin-top: 5%;
+}
+
+.main-container .middle .content .home .home-tech-skills .line-text{
+/*	min-width: 90%;
+	margin: 0 2%;
+	margin-top: 5%;*/
+}
+.main-container .middle .content .home .home-tech-skills .line-text .text{
+	margin-left: 3%;
+	margin-bottom: 1%;
+	/*color: #ffcc00;*/
+	font-size:18px;
+	font-weight: 500;
+}
+.main-container .middle .content .home .home-tech-skills .line-text .line{
+	border: 1px solid #ffcc00;
+}
+
+.main-container .middle .content .home .home-tech-skills>.skill-lists ul{
+	margin-left: 3%;
+	width: 70%;
+	list-style: none;
+}
+.main-container .middle .content .home .home-tech-skills>.skill-lists ul li{
+	margin-bottom: 8px;
+	/*border: 1px solid black;*/
+}
+.main-container .middle .content .home .home-tech-skills>.skill-lists ul li a{
+	text-decoration: none;
+	color: black;
+	font-style: italic;
+	position: relative;
+}
+/*$linkColor:#66cc99;
+$boldColor:#4a4e51;
+$time:0.6s;*/
+
+.main-container .middle .content .home .home-tech-skills>.skill-lists ul li .percentage{
+	width: 90%;
+	height: 6px;
+	margin-top:5px;
+	background:#4a4e51;
+	position: relative;
+	z-index: 1;
+}
+
+.main-container .middle .content .home .home-tech-skills>.skill-lists ul li .percentage .left{
+	position: absolute;
+	left: 0;
+	height: 6px;
+	background:#66cc99;
+	z-index: 2;
+}
+.home-tech-skills>.skill-lists ul li:nth-child(1)>.percentage>.left{animation: skill-1 0.6s ease forwards;}
+.home-tech-skills>.skill-lists ul li:nth-child(2)>.percentage>.left{animation: skill-2 0.6s ease forwards;}
+.home-tech-skills>.skill-lists ul li:nth-child(3)>.percentage>.left{animation: skill-3 0.6s ease forwards;}
+.home-tech-skills>.skill-lists ul li:nth-child(4)>.percentage>.left{animation: skill-4 0.6s ease forwards;}
+.home-tech-skills>.skill-lists ul li:nth-child(5)>.percentage>.left{animation: skill-5 0.6s ease forwards;}
+
+@keyframes skill-1{0%{width: 0;}100%{width: 80%;}}
+@keyframes skill-2{0%{width: 0;}100%{width: 90%;}}
+@keyframes skill-3{0%{width: 0;}100%{width: 80%;}}
+@keyframes skill-4{0%{width: 0;}100%{width: 60%;}}
+@keyframes skill-5{0%{width: 0;}100%{width: 50%;}}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*home-projects*/
+.main-container .middle .content .home .home-projects{
+margin-top: 5%;}
+
+.main-container .middle .content .home .home-projects>.bottom ul{
+	margin-left: 20%;
+}
+.main-container .middle .content .home .home-projects>.bottom ul li{
+	margin-bottom: 5px;
+}
+.main-container .middle .content .home .home-projects>.bottom ul li a{
+	text-decoration: none;
+	color: black;
+	font-style: italic;
+}
+
+/*home-experience*/
+
+
 
 
 

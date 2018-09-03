@@ -1,3 +1,4 @@
+
 var uniqueLi = {};
 $(".list li").each(function () {
   var thisVal = $(this).find(".text").text();
