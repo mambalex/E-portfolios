@@ -2,8 +2,32 @@ COMP9900 Work Diary
 Name: Zhiqin Zhang
 zID: z5105196
 
-Week 2:
+Week7:
+Finished all the pages
+Things to do next:
+Connect to the backend
 
+Week6:
+Finished the students and search result's pages
+Things to do next week:
+employers, instructors and faculty managers interfaces
+
+Week5:
+Finished login and sign-up pages
+Things to do next week:
+students interface and search result page
+
+Week4:
+Finished the layout design for search page
+Things to do next week:
+sign-up and login pages
+
+Week3:
+Wrote the epics for the proposal 
+Things to do next week:
+Start coding Front-end 
+
+Week 2:
 1. Formed a group of 4
 2. Created the Trello & Bitbucket accounts for the team
 3. Discussed 3 topics with the team in the lab,I prefer to pick the second topic
