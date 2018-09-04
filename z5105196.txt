@@ -2,6 +2,10 @@ COMP9900 Work Diary
 Name: Zhiqin Zhang
 zID: z5105196
 
+Week7:
+Finished all the pages
+Things to do next:
+Connect to the backend
 
 Week6:
 Finished the students and search result's pages
