@@ -7,7 +7,7 @@ class Database_object():
 
     database_name = "postgres"
     host_addr = "localhost"
-    host_port = 32207
+    host_port = 5432
     user_name = "postgres"
     passwd = "postgres"
 
@@ -43,8 +43,8 @@ class Database_object():
         assert type(sql) == str
         assert self.database_status == "Open"
         try:
-            result = self.__cur.execute(sql)
-            return result.fetchall()
+            self.__cur.execute(sql)
+            return self.__cur.fetchall()
         except psycopg2.ProgrammingError:
             self.__rollback()
             self.__debug("Wrong SQL.")
@@ -86,6 +86,6 @@ class Database_object():
 
 
 if __name__ == "__main__":
-    database = Database_object()
+    database = Database_object({"dbname": "comp9900"})
     database.open()
     database.close()
