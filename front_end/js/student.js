@@ -12,7 +12,7 @@ $(".skill-form").on('click','button', function(e){
 	e.preventDefault();
 	var newVar = $(".input").val();
 	if(newVar.match(/^ *$/) === null){
-		$(".list li").each(function(){
+		$(".skill-list li").each(function(){
 			// console.log(newVar);
 			// console.log($(this).children(".text").text());
 			if(newVar == $(this).find(".text").text() && $(this).css('display') !== "none" ){
@@ -20,7 +20,25 @@ $(".skill-form").on('click','button', function(e){
 				alert("The skill already exists")
 			}
 		});
-		if(flag === 1){$(".list").append("<li><div class='text'>" + newVar + "</div> <i class='far fa-trash-alt'></i></li>");}
+		if(flag === 1){$(".skill-list").append("<li><div class='text'>" + newVar + "</div> <i class='far fa-trash-alt'></i></li>");}
+	}
+})
+
+$(".course-form").on('click','button', function(e){
+	var flag = 1;
+	e.preventDefault();
+	var newVar = $(".course-title-input").val();
+	var name = $(".course-name-input").val();
+	if(newVar.match(/^ *$/) === null){
+		$(".course-title").each(function(){
+			// console.log(newVar);
+			// console.log($(this).children(".text").text());
+			if(newVar == $(this).text() && $(this).css('display') !== "none" ){
+				flag = 0;
+				alert("The course already exists")
+			}
+		});
+		if(flag === 1){$(".courses").append("<li class='course'><div class='wrapper'><div class='course-title'>"+ newVar +"</div><div class='text'>-" + name + "</div><i class='far fa-trash-alt '></i></div></li>");}
 	}
 })
 
@@ -45,9 +63,14 @@ $(".jobs-form").on('click','button', function(e){
 
 
 
-$(".list").on('click', 'i',function(event){
+$(".skill-list").on('click', 'i',function(event){
 	event.preventDefault();
 	$(this).parent().fadeOut("slow");
+});
+
+$(".courses").on('click', 'i',function(event){
+	event.preventDefault();
+	$(this).parent().parent().fadeOut("slow");
 });
 
 $(".job-list").on('click', 'i',function(event){
