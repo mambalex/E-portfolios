@@ -492,7 +492,7 @@ margin-top: 5%;}
 
 .main-container .middle .content .skill-set .skills{
 	/*border: 1px solid black;*/
-	margin-top: 10%;
+	margin-top: 2%;
 	margin-left: 27%;
 	display: inline-block;
 	width: 70%;
@@ -544,6 +544,31 @@ margin-top: 5%;}
 	font-size: 15px;
 	background: #231f20;
 }
+
+.main-container .middle .content .skill-set .courses-wrapper .courses{
+	margin: 5% 0 5% 5%;
+}
+.main-container .middle .content .skill-set .courses-wrapper .course .wrapper{
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.main-container .middle .content .skill-set .courses-wrapper .course .wrapper .course-title{
+	width: 25%;
+	/*border: 1px solid black;*/
+}
+.main-container .middle .content .skill-set .courses-wrapper .course .wrapper .text{
+	width: 65%;
+	/*border: 1px solid black;*/
+}
+
+::-webkit-input-placeholder {
+   color: #808080;
+   text-align: center;
+   font-size: 13px;
+}
+
+
 
 
 /*projects*/
