@@ -45,18 +45,18 @@ CREATE TABLE job_and_skill
 
 CREATE TABLE user_info
 (
-    "Id" uuid NOT NULL,
     username character(40) NOT NULL,
+    uname character(40),
     password character(40) NOT NULL,
     email character(40) NOT NULL,
     type integer NOT NULL,
     photo text,
-    PRIMARY KEY ("Id")
+    PRIMARY KEY ("username")
 );
 
 CREATE TABLE course_list
 (
-    u_id uuid NOT NULL,
+    u_id character(40) NOT NULL,
     c_id character(8) NOT NULL,
     certificat integer NOT NULL,
     PRIMARY KEY (c_id, u_id)
@@ -65,7 +65,7 @@ CREATE TABLE course_list
 CREATE TABLE resume
 (
     "Id" uuid NOT NULL,
-    "u_Id" uuid NOT NULL,
+    "u_Id" character(40) NOT NULL,
     address text NOT NULL,
     PRIMARY KEY ("Id")
 );
