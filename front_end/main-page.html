@@ -2,11 +2,10 @@
 <html>
 <head>
 	<title>Main Page</title>
-	<script
-  		src="https://code.jquery.com/jquery-3.3.1.slim.js"
-  		integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
-  		crossorigin="anonymous">
-  	</script>
+  	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="css/main-page.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -35,20 +34,27 @@
 	 					<div class="search-bar">
 	 						<form class="search" action="">
 	 								<div class="input-wrapper">
-  										<input type="search" name="keyword" placeholder="Search here..." required><!--
-  										 --><input type="search" name="location" placeholder="Location" required>
+  										<input type="search" name="keyword" placeholder="Search here..." ><!--
+  										 --><input type="search" name="location" placeholder="Location" r>
   									</div>
   									<div class="plus-minus"><i class="fas fa-plus plus"></i><i class="fas fa-minus minus"></i></div>
   									<div class="tags">
   										<div class="tag">
   											<div class="title">Tags:</div>
-  											<div class="all-tags"></div>
+  											<!-- <input type="text" name="" class="all-tags"> -->
+
+  											<div class="all-tags">
+  												  <ul class="tag-labels">
+												    <li><span class="tg">leadership</span> <span class="x">x</span></li>	
+												    <li><span class="tg">Java</span>  <span class="x">x</span></li>
+												  </ul>
+  											</div>
   										</div>
   										
   										<div class="wrapper">
 		  									<div class="left">
 		  										<div>
-		  											<input type="text" name="skills" placeholder="Skills">
+		  											<input type="text" name="tags" placeholder="tags" class="tag-input">
 		  											<select>
 		  												<option value="Java">Java</option>
 		  												<option value="Python">Python</option>
