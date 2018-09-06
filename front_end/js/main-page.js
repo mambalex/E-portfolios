@@ -18,7 +18,6 @@ $(document).on('click', '.plus-tag', function(e){
 	var new_tag = $(".tag-input").val();
 	if(new_tag.match(/^ *$/) === null){
 		$(".tag-labels li").each(function(){
-			alert($(this).find(".tg").text());
 			if(new_tag === $(this).find(".tg").text() && $(this).css('display') !== "none" ){
 				flg = 0;
 			}else if(new_tag === $(this).find(".tg").text() && $(this).css('display') === "none"){
