@@ -87,18 +87,22 @@ def get_skill_name(uuid):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "select * from skills where \"Id\" = '{}';".format(uuid)
+    sql = "select * from skills where skill_id = '{}';".format(uuid)
     result = database_object.search(sql)
     database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
     return result
 
 def search_skill(skill_name):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "select * from skills where \"Name\" like '%{}%';".format(skill_name)
+    sql = "select * from skills where skill_name like '%{}%';".format(skill_name)
     result = database_object.search(sql)
     database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
     return result
 
 def create_course(code, course_name):
@@ -113,18 +117,273 @@ def get_course_name(code):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "select * from courses where \"Id\" = '{}';".format(code)
+    sql = "select * from courses where code = '{}';".format(code)
     result = database_object.search(sql)
     database_object.close()
+    key_list = ['code', 'name']
+    result = convert_result_to_dict(result, key_list)
     return result
 
 def search_course(course_name):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "select * from courses where \"Name\" like '%{}%';".format(course_name)
+    sql = "select * from courses where course_name like '%{}%';".format(course_name)
     result = database_object.search(sql)
     database_object.close()
+    key_list = ['code', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def create_skill_link(course_code, skill_uuid, relevance = 1.0):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into course_and_skill values ('{}', '{}', {});".format(course_code, skill_uuid, relevance)
+    database_object.update(sql)
+    database_object.close()
+
+def search_skill_by_course_code(course_code):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select s.* from course_and_skill cs, skills s where cs.code = '{}' and cs.skill_id = s.skill_id;".format(course_code)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_course_by_skill_uuid(skill_uuid):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select c.* from course_and_skill cs, courses c where cs.skill_id = '{}' and cs.code = c.code;".format(skill_uuid)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['code', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_skill_by_course_name(name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select s.* from course_and_skill cs, skills s, courses c \
+    where c.course_name like '%{}%' and c.code = cs.code and cs.skill_id = s.skill_id;".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_course_by_skill_name(name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select c.* from course_and_skill cs, skills s, courses c \
+    where s.skill_name like '%{}%' and c.code = cs.code and cs.skill_id = s.skill_id;".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['code', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def create_job_and_skill_link(job_uuid, skill_uuid, relevance = 1.0):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into job_and_skill values ('{}', '{}', {});".format(job_uuid, skill_uuid, relevance)
+    database_object.update(sql)
+    database_object.close()
+
+def search_skill_by_job_uuid(job_uuid):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select s.* from job_and_skill js, skills s where js.job_id = '{}' and js.skill_id = s.skill_id;".format(job_uuid)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_job_by_skill_uuid(skill_uuid):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select j.* from job_and_skill js, job_title j where js.skill_id = '{}' and js.job_id = j.job_id;".format(skill_uuid)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_skill_by_job_title(name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select s.* from job_and_skill js, skills s, job_title j \
+    where j.job_name like '%{}%' and j.job_id = js.job_id and js.skill_id = s.skill_id;".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def search_job_by_skill_name(name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select j.* from job_and_skill js, skills s, job_title j \
+    where s.skill_name like '%{}%' and j.job_id = js.job_id and js.skill_id = s.skill_id;".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def add_course_to_list(username, code, certificat = 1):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into course_list values ('{}', '{}', {});".format(username, code, certificat)
+    database_object.update(sql)
+    database_object.close()
+
+def get_course_list(username):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select c.* from course_list sl, courses c where sl.student_id = '{}' and sl.code = c.code;".format(username)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['code', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def delete_course_from_list(username, code):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "delete from course_list where student_id = '{}' and code = '{}';".format(username, code)
+    database_object.update(sql)
+    database_object.close()
+
+def create_resume(resume_uuid, username, address):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into resume values ('{}', '{}', '{}');".format(resume_uuid, username, address)
+    database_object.update(sql)
+    database_object.close()
+
+def get_self_resume(username):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select * from resume where student_id = '{}';".format(username)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'username', 'address']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+#TODO unfinished function
+def search_resume():
+    pass
+
+def delete_resume(resume_uuid):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "delete from resume where resume_id = '{}';".format(resume_uuid)
+    database_object.update(sql)
+    database_object.close()
+
+def create_job_title(uuid, name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into job_title values ('{}', '{}');".format(uuid, name)
+    database_object.update(sql)
+    database_object.close()
+
+def search_job_title(name):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select * from job_title where job_name like '%{}%';".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def create_job_info(info_uuid, job_uuid, company_id, address):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into job_info values ('{}', '{}', '{}', '{}');".format(info_uuid, job_uuid, company_id, address)
+    database_object.update(sql)
+    database_object.close()
+
+def change_job_info_address(info_uuid, new_address):
+    change_job_info(info_uuid, "address", new_address)
+
+def change_job_info_title(info_uuid, new_title_uuid):
+    change_job_info(info_uuid, "job_id", new_title_uuid)
+
+def change_job_info(info_uuid, field, new_data):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "update job_info set {} = '{}' where job_info_id = '{}';".format(field, new_data, info_uuid)
+    database_object.update(sql)
+    database_object.close()
+
+def delete_job_info(info_uuid):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "delete from job_info where job_info_id = '{}';".format(info_uuid)
+    database_object.update(sql)
+    database_object.close()
+
+def send_resume(enrol_id, student_id, company_id, resume_id):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into enrolment values ('{}', '{}', '{}', '{}');".format(enrol_id, student_id, company_id, resume_id)
+    database_object.update(sql)
+    database_object.close()
+
+def cancel_resume_send(enrol_id):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "delete from enrolment where enrol_id = '{}';".format(enrol_id)
+    database_object.update(sql)
+    database_object.close()
+
+def get_resume_list(company_id):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select enrol_id, student_id, resume_id from enrolment where company_id = '{}';".format(company_id)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['enrol_id', 'student_id', 'resume_id']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def convert_result_to_dict(temp_result, key_list):
+    result = list()
+    for tuples in temp_result:
+        temp_dict = {}
+        for i in range(len(tuples)):
+            temp_dict[key_list[i]] = tuples[i]
+        result.append(temp_dict)
     return result
 
 def convert_user_info(temp_result):
@@ -159,5 +418,7 @@ def create_test_data():
     database_object.close()
 
 if __name__ == "__main__":
-    print(get_user_info_by_username('test1'))
+    # print(get_user_info_by_username('test1'))
     # create_test_data()
+    # print(get_course_list('test1'))
+    pass
