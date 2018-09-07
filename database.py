@@ -94,6 +94,17 @@ def get_skill_name(uuid):
     result = convert_result_to_dict(result, key_list)
     return result
 
+def get_all_skill():
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select * from skills;"
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
 def search_skill(skill_name):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
@@ -314,6 +325,17 @@ def search_job_title(name):
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
     sql = "select * from job_title where job_name like '%{}%';".format(name)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['id', 'name']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def get_all_job_title():
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select * from job_title;"
     result = database_object.search(sql)
     database_object.close()
     key_list = ['id', 'name']
