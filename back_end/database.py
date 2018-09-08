@@ -440,7 +440,5 @@ def create_test_data():
     database_object.close()
 
 if __name__ == "__main__":
-    # print(get_user_info_by_username('test1'))
     # create_test_data()
-    # print(get_course_list('test1'))
-    print(get_user_password('test1'))
+    pass
