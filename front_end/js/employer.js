@@ -31,5 +31,31 @@ $(document).on('click', '.interviews', function(e){
 })
 
 
+$(document).on('click', '.add-jobs', function(e){
+	e.preventDefault();
+	$('.new-opening-job').css('display','flex');
+	$('.job-popup').hide();
+})
+
+$(document).on('click', '.job-creation-close', function(e){
+	e.preventDefault();
+	$('.new-opening-job').hide()
+})
+
+
+
+$(document).on('click', '.info', function(e){
+	e.preventDefault();
+	$('.job-popup').css('display','flex');
+	$('.new-opening-job').hide();
+})
+
+$(document).on('click', '.job-popup-close', function(e){
+	e.preventDefault();
+	$('.job-popup').hide();
+})
+
+
+
 
 

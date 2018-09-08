@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 06/09/2018 06:32
+  	Creation date: 08/09/2018 09:05
   	*/
 
 @font-face {
@@ -30,9 +30,12 @@ margin-left: 20px;
 }
 
 .flaticon-bag:before { content: "\f100"; }
-.flaticon-resume:before { content: "\f101"; }
-.flaticon-businessman:before { content: "\f102"; }
-.flaticon-interview:before { content: "\f103"; }
-.flaticon-test:before { content: "\f104"; }
+.flaticon-businessman:before { content: "\f101"; }
+.flaticon-interview:before { content: "\f102"; }
+.flaticon-test:before { content: "\f103"; }
+.flaticon-agreement:before { content: "\f104"; }
 .flaticon-offer:before { content: "\f105"; }
-.flaticon-agreement:before { content: "\f106"; }
+.flaticon-branch:before { content: "\f106"; }
+.flaticon-money:before { content: "\f107"; }
+.flaticon-pin:before { content: "\f108"; }
+.flaticon-resume:before { content: "\f109"; }

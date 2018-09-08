@@ -69,6 +69,7 @@ body{
 .main-container>.bottom{
 	margin: 3% 7%;
 	margin-bottom: 20%;
+	position: relative;
 	/*border: 1px solid black;*/
 	/*height: 700px;*/
 }
@@ -137,10 +138,239 @@ body{
 }
 
 
+.main-container .bottom .new-opening-job{
+	/*display: flex;*/
+	display: none;
+	position: absolute;
+	z-index: 9;
+	flex-direction: column;
+	width: 90%;
+	margin-left: 5%;
+	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    padding-bottom: 50px;
+    background-color: white;
+}
+.main-container .bottom .new-opening-job .title{
+	height: 70px;
+	font-size: 30px;
+	font-weight: 400;
+	background-color: white;
+	padding: 25px 0 0 20px;
+	position: relative;
+}
+
+.main-container .bottom .new-opening-job .title>i{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-size: 30px;
+	color: rgb(48,178,68);
+	cursor: pointer;
+}
+
+.main-container .bottom .new-opening-job .list{
+	margin: 5px 10px 5px 35px;
+}
+
+.main-container .bottom .new-opening-job i{
+	margin-right: 10px;
+}
+
+.main-container .bottom .new-opening-job .left{
+	width: 150px;
+	display: inline-block;
+}
+.main-container .bottom .new-opening-job .per-year{
+	margin-left: 10px;
+}
+.main-container .bottom .new-opening-job .salary-location{
+	height: 150px;
+	padding-top: 15px;
+	/*border: 1px solid black;*/
+	position: relative;
+	background-color: rgb(239,241,241);
+}
+
+.main-container .bottom .new-opening-job .create-job{
+	position: absolute;
+	right: 20px;
+	top:20px;
+	margin-right: 20px;
+	width: 120px;
+	height: 40px;
+}
+.main-container .bottom .new-opening-job .create-job button{
+	background-color: rgb(48,178,68);
+	color: white;
+	width: 100%;
+	height: 100%;
+	border-radius: .25rem;
+	font-weight: 400;
+	font-size: 15px;
+	outline: none !important;
+	border: none;
+	cursor: pointer;
+}
+
+.main-container .bottom .new-opening-job .create-job button:hover{
+	background-color: rgb(23,150,25);
+}
+
+
+.main-container .bottom .new-opening-job .job-summary,.job-responsibilities,.skills-required-title,.personal-skills-title,.others-title{
+	background-color: white;
+	padding:10px 0 0 40px;
+	font-weight: 550;
+	font-size: 20px;
+}
+.main-container .bottom .new-opening-job .description,.responsibilities,.skills-required,.personal-skills,.others{
+	background-color: white;
+	margin-left: 50px;
+	padding-right: 40px;
+}
+
+
+.main-container .bottom .new-opening-job input{
+	width: 500px;
+	height: 25px;
+}
+
+.main-container .bottom .new-opening-job .salary-location input{
+	width: 200px;
+	height: 20px;
+}
+.main-container .bottom .new-opening-job .add-job-summary{
+	margin: 20px 100px;
+	width: 600px;
+	height: 100px;
+}
+
+.main-container .bottom .new-opening-job ul li button{
+	background-color: rgb(48,178,68);
+	color: white;
+	width: 50px;
+	height: 25px;
+	margin-left: 20px;
+	border-radius: .25rem;
+	font-weight: 400;
+	font-size: 15px;
+	outline: none !important;
+	border: none;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+.main-container .bottom .job-popup{
+	/*display: flex;*/
+	display: none;
+	position: absolute;
+	z-index: 9;
+	flex-direction: column;
+	width: 90%;
+	margin-left: 5%;
+	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    padding-bottom: 50px;
+    background-color: white;
+}
+.main-container .bottom .job-popup .title{
+	height: 70px;
+	font-size: 30px;
+	font-weight: 400;
+	background-color: white;
+	padding: 25px 0 0 20px;
+	position: relative;
+}
+
+.main-container .bottom .job-popup .title>i{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	font-size: 30px;
+	color: rgb(48,178,68);
+	cursor: pointer;
+}
+
+.main-container .bottom .job-popup .list{
+	margin: 5px 10px 5px 35px;
+}
+
+.main-container .bottom .job-popup i{
+	margin-right: 10px;
+}
+
+.main-container .bottom .job-popup .left{
+	width: 150px;
+	display: inline-block;
+}
+.main-container .bottom .job-popup .per-year{
+	margin-left: 5px;
+}
+.main-container .bottom .job-popup .salary-location{
+	height: 130px;
+	/*border: 1px solid black;*/
+	position: relative;
+	background-color: rgb(239,241,241);
+}
+
+.main-container .bottom .job-popup .save-job{
+	position: absolute;
+	right: 20px;
+	top:20px;
+	margin-right: 20px;
+	width: 120px;
+	height: 40px;
+}
+.main-container .bottom .job-popup .save-job button{
+	background-color: rgb(48,178,68);
+	color: white;
+	width: 100%;
+	height: 100%;
+	border-radius: .25rem;
+	font-weight: 400;
+	font-size: 15px;
+	outline: none !important;
+	border: none;
+	cursor: pointer;
+}
+
+.main-container .bottom .job-popup .save-job button:hover{
+	background-color: rgb(23,150,25);
+}
+
+
+.main-container .bottom .job-popup .job-summary,.job-responsibilities,.skills-required-title,.personal-skills-title,.others-title{
+	background-color: white;
+	padding:10px 0 0 40px;
+	font-weight: 550;
+	font-size: 20px;
+}
+.main-container .bottom .job-popup .description,.responsibilities,.skills-required,.personal-skills,.others{
+	background-color: white;
+	padding-left: 100px;
+	padding-right: 40px;
+}
+
+
+
+
+
+
+
+
 .main-container .bottom .add-jobs{
 	float: right;
 	color: rgb(48,188,68);
 	margin: 0 20px 20px 0;
+	cursor: pointer;
 }
 
 
@@ -154,7 +384,7 @@ body{
 	flex-direction: column;
 	justify-content: flex-start;
 	/*border: 1px solid black;*/
-		transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
+	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
     transition-delay: 0.2s;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
