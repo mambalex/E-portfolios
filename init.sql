@@ -8,39 +8,39 @@
 
 CREATE TABLE courses
 (
-    "Id" character(8) NOT NULL,
-    "Name" text NOT NULL,
-    PRIMARY KEY ("Id")
+    code character(8) NOT NULL,
+    course_name text NOT NULL,
+    PRIMARY KEY (code)
 );
 
 CREATE TABLE skills
 (
-    "Id" uuid NOT NULL,
-    "Name" text NOT NULL,
-    PRIMARY KEY ("Id")
+    skill_id uuid NOT NULL,
+    skill_name text NOT NULL,
+    PRIMARY KEY (skill_id)
 );
 
 CREATE TABLE job_title
 (
-    "Id" uuid NOT NULL,
-    "Name" text NOT NULL,
-    PRIMARY KEY ("Id")
+    job_id uuid NOT NULL,
+    job_name text NOT NULL,
+    PRIMARY KEY (job_id)
 );
 
 CREATE TABLE course_and_skill
 (
-    "c_Id" character(8) NOT NULL,
-    "s_Id" uuid NOT NULL,
+    code character(8) NOT NULL,
+    skill_id uuid NOT NULL,
     relevance double precision,
-    PRIMARY KEY ("c_Id", "s_Id")
+    PRIMARY KEY (code, skill_id)
 );
 
 CREATE TABLE job_and_skill
 (
-    "j_Id" uuid NOT NULL,
-    "s_ID" uuid NOT NULL,
+    job_id uuid NOT NULL,
+    skill_id uuid NOT NULL,
     relevance double precision,
-    PRIMARY KEY ("j_Id", "s_ID")
+    PRIMARY KEY (job_id, skill_id)
 );
 
 CREATE TABLE user_info
@@ -51,39 +51,39 @@ CREATE TABLE user_info
     email character(40) NOT NULL,
     type integer NOT NULL,
     photo text,
-    PRIMARY KEY ("username")
+    PRIMARY KEY (username)
 );
 
 CREATE TABLE course_list
 (
-    u_id character(40) NOT NULL,
-    c_id character(8) NOT NULL,
+    student_id character(40) NOT NULL,
+    code character(8) NOT NULL,
     certificat integer NOT NULL,
-    PRIMARY KEY (c_id, u_id)
+    PRIMARY KEY (student_id, code)
 );
 
 CREATE TABLE resume
 (
-    "Id" uuid NOT NULL,
-    "u_Id" character(40) NOT NULL,
+    resume_id uuid NOT NULL,
+    student_id character(40) NOT NULL,
     address text NOT NULL,
-    PRIMARY KEY ("Id")
+    PRIMARY KEY (resume_id)
 );
 
 CREATE TABLE enrolment
 (
-    "Id" uuid NOT NULL,
-    "student_Id" uuid NOT NULL,
-    "company_Id" uuid NOT NULL,
-    "resume_Id" uuid NOT NULL,
-    PRIMARY KEY ("Id")
+    enrol_id uuid NOT NULL,
+    student_id character(40) NOT NULL,
+    company_id character(40) NOT NULL,
+    resume_id uuid NOT NULL,
+    PRIMARY KEY (enrol_id)
 );
 
 CREATE TABLE job_info
 (
-    "Id" uuid NOT NULL,
-    "j_Id" uuid NOT NULL,
-    "company_Id" uuid NOT NULL,
+    job_info_id uuid NOT NULL,
+    job_id uuid NOT NULL,
+    company_id character(40) NOT NULL,
     address text NOT NULL,
-    PRIMARY KEY ("Id")
+    PRIMARY KEY (job_info_id)
 );
