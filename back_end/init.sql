@@ -49,9 +49,20 @@ CREATE TABLE user_info
     uname text,
     password character(40) NOT NULL,
     email text NOT NULL,
+    location text,
     type integer NOT NULL,
+    description character varying(200)[],
     photo text,
     PRIMARY KEY (username)
+);
+
+CREATE TABLE education_exp
+(
+    student_id character(40) NOT NULL,
+    major text,
+    university text,
+    degree character varying(10)[],
+    PRIMARY KEY (student_id)
 );
 
 CREATE TABLE course_list
@@ -84,6 +95,8 @@ CREATE TABLE job_info
     job_info_id uuid NOT NULL,
     job_id uuid NOT NULL,
     company_id character(40) NOT NULL,
+    description character varying(200)[],
+    salary integer,
     address text NOT NULL,
     PRIMARY KEY (job_info_id)
 );
