@@ -46,9 +46,9 @@ CREATE TABLE job_and_skill
 CREATE TABLE user_info
 (
     username character(40) NOT NULL,
-    uname character(40),
+    uname text,
     password character(40) NOT NULL,
-    email character(40) NOT NULL,
+    email text NOT NULL,
     type integer NOT NULL,
     photo text,
     PRIMARY KEY (username)

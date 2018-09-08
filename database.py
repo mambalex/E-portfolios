@@ -146,7 +146,7 @@ def search_course(course_name):
     result = convert_result_to_dict(result, key_list)
     return result
 
-def create_skill_link(course_code, skill_uuid, relevance = 1.0):
+def create_course_and_skill_link(course_code, skill_uuid, relevance = 1.0):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
@@ -443,4 +443,4 @@ if __name__ == "__main__":
     # print(get_user_info_by_username('test1'))
     # create_test_data()
     # print(get_course_list('test1'))
-    pass
+    print(get_user_password('test1'))
