@@ -264,6 +264,8 @@ body{
 }
 
 
+/*candidate-popup*/
+
 .main-container .bottom .candidate-popup{
 	display: none;
 	position: absolute;
@@ -560,19 +562,19 @@ body{
 	position: absolute;
 	z-index: 9;
 	flex-direction: column;
-	width: 90%;
-	margin-left: 5%;
+	width: 80%;
+	margin-left: 10%;
 	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
     transition-delay: 0.2s;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     padding-bottom: 50px;
     background-color: white;
+	border-top: 2px solid rgb(48,178,68);
 }
-.main-container .bottom .job-popup .title{
+.main-container .bottom .job-popup>.title{
 	height: 70px;
 	font-size: 30px;
 	font-weight: 400;
-	background-color: white;
 	padding: 25px 0 0 20px;
 	position: relative;
 }
