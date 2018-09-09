@@ -44,6 +44,22 @@ $(document).on('click', '.job-creation-close', function(e){
 
 
 
+
+$(document).on('click', '.candidate-info', function(e){
+    e.preventDefault();
+    $('.candidate-popup').css('display','flex');
+    $('.new-opening-job').hide();
+    $('.job-popup').hide();
+})
+$(document).on('click', '.candidate-popup-close', function(e){
+    e.preventDefault();
+    $('.candidate-popup').hide();
+})
+
+
+
+
+
 $(document).on('click', '.info', function(e){
 	e.preventDefault();
 	$('.job-popup').css('display','flex');
