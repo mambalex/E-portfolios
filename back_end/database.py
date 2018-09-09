@@ -17,7 +17,7 @@ def create_user(user_profile):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "insert into user_info values ('{}', '{}', '{}', '{}','{}','{}')';".format(user_profile["username"], user_profile.get("name", user_profile["username"]), user_profile["password"], user_profile["email"], user_profile["type"], user_profile.get("photo", "None"))
+    sql = "insert into user_info values ('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')';".format(user_profile["username"], user_profile.get("name", user_profile["username"]), user_profile["password"], user_profile["email"], user_profile.get("location", "Sydney"), user_profile["type"], user_profile.get("description", "Nothing to show."), user_profile.get("photo", "None"))
     database_object.update(sql)
     database_object.close()
 
@@ -74,6 +74,12 @@ def change_user_type(username, type_code):
 
 def change_user_photo(username, photo_addr):
     change_user_info(username, "photo", photo_addr)
+
+def change_user_location(username, new_location):
+    change_user_info(username, "location", new_location)
+
+def change_user_description(username, new_description):
+    change_user_info(username, "description", new_description)
 
 def create_skill(uuid, skill_name):
     dbconfig = {"dbname": "comp9900"}
@@ -342,11 +348,22 @@ def get_all_job_title():
     result = convert_result_to_dict(result, key_list)
     return result
 
-def create_job_info(info_uuid, job_uuid, company_id, address):
+def get_job_info_by_job_uuid(job_uuid):
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "insert into job_info values ('{}', '{}', '{}', '{}');".format(info_uuid, job_uuid, company_id, address)
+    sql = "select j.job_name, ui.uname, ji.* from job_title j, job_info ji, uses_info ui where j.job_id = '{}' and j.job_id = ji.job_id and ji.company_id = ui.username;"
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['job_title', 'company_name', 'job_info_id', 'company_id', 'description', 'salary', 'address']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def create_job_info(info_uuid, job_uuid, company_id, address, description = "None", salary = 0):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into job_info values ('{}', '{}', '{}', '{}', '{}', '{}');".format(info_uuid, job_uuid, company_id, description, salary,address)
     database_object.update(sql)
     database_object.close()
 
@@ -355,6 +372,12 @@ def change_job_info_address(info_uuid, new_address):
 
 def change_job_info_title(info_uuid, new_title_uuid):
     change_job_info(info_uuid, "job_id", new_title_uuid)
+
+def change_job_info_description(info_uuid, new_description):
+    change_job_info(info_uuid, "description", new_description)
+
+def change_job_info_salary(info_uuid, new_salary):
+    change_job_info(info_uuid, "salary", new_salary)
 
 def change_job_info(info_uuid, field, new_data):
     dbconfig = {"dbname": "comp9900"}
@@ -399,6 +422,50 @@ def get_resume_list(company_id):
     result = convert_result_to_dict(result, key_list)
     return result
 
+def create_education_exp(student_id, major, university, degree):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "insert into education_exp values ('{}', '{}', '{}', '{}');".format(student_id, major, university, degree)
+    database_object.update(sql)
+    database_object.close()
+
+def get_education_exp(student_id):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "select * from education_exp where student_id = '{}';".format(student_id)
+    result = database_object.search(sql)
+    database_object.close()
+    key_list = ['student_id', 'major', 'university', 'degree']
+    result = convert_result_to_dict(result, key_list)
+    return result
+
+def change_major(student_id, new_major):
+    change_education_exp(student_id, "major", new_major)
+
+def change_university(student_id, new_university):
+    change_education_exp(student_id, "university", new_university)
+
+def change_degree(student_id, new_degree):
+    change_education_exp(student_id, "degree", new_degree)
+
+def change_education_exp(student_id, field, new_data):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "update education_exp set {} = '{}' where student_id = '{}';".format(field, new_data, student_id)
+    database_object.update(sql)
+    database_object.close()
+
+def delete_education_exp(student_id):
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "delete from education_exp where student_id = '{}';".format(student_id)
+    database_object.update(sql)
+    database_object.close()
+
 def convert_result_to_dict(temp_result, key_list):
     result = list()
     for tuples in temp_result:
@@ -415,8 +482,10 @@ def convert_user_info(temp_result):
         temp_dict["username"] = temp_tuple[0].rstrip()
         temp_dict["name"] = temp_tuple[1].rstrip()
         temp_dict["email"] = temp_tuple[3].rstrip()
-        temp_dict["type"] = temp_tuple[4]
-        temp_dict["photo"] = temp_tuple[5]
+        temp_dict["location"] = temp_tuple[4]
+        temp_dict["type"] = temp_tuple[5]
+        temp_dict["description"] = temp_tuple[6]
+        temp_dict["photo"] = temp_tuple[7]
         result.append(temp_dict)
     return result
 
@@ -424,9 +493,9 @@ def create_test_data():
     dbconfig = {"dbname": "comp9900"}
     database_object = database_lib.Database_object(dbconfig)
     database_object.open()
-    sql = "insert into user_info values ('test1','test1','123456','test1@abc.com',1,'None');\
-            insert into user_info values ('test2','test2','456789','test2@abc.com',1,'None');\
-            insert into user_info values ('test3','test3','123789','test3@abc.com',1,'None');\
+    sql = "insert into user_info values ('test1','test1','123456','test1@abc.com', 'Sydney',1,'Nothing to show.','None');\
+            insert into user_info values ('test2','test2','456789','test2@abc.com', 'Sydney',1, 'None','None');\
+            insert into user_info values ('test3','test3','123789','test3@abc.com','Sydney',1, '404','None');\
             insert into skills values ('45a113ac-c7f2-30b0-90a5-a399ab912716', 'Java');\
             insert into skills values ('c501822b-22a8-37ff-91a9-9545f4689a3d', 'Python');\
             insert into job_title values ('f1917643-06b2-3e6d-ab77-0a5044067d0a', 'Network Engineering');\
