@@ -2,6 +2,10 @@ COMP9900 Work Diary
 Name: Han Zhang
 zID: z5043158
 
+Week7:
+Finished most function of database.
+Continue working on backend.
+
 Week6:
 Writing SQL to support backend.
 Continue working on backend.
