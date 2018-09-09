@@ -471,7 +471,7 @@ def convert_result_to_dict(temp_result, key_list):
     for tuples in temp_result:
         temp_dict = {}
         for i in range(len(tuples)):
-            temp_dict[key_list[i]] = tuples[i]
+            temp_dict[key_list[i]] = tuples[i].rstrip()
         result.append(temp_dict)
     return result
 
@@ -484,7 +484,7 @@ def convert_user_info(temp_result):
         temp_dict["email"] = temp_tuple[3].rstrip()
         temp_dict["location"] = temp_tuple[4]
         temp_dict["type"] = temp_tuple[5]
-        temp_dict["description"] = temp_tuple[6]
+        temp_dict["description"] = temp_tuple[6].rstrip()
         temp_dict["photo"] = temp_tuple[7]
         result.append(temp_dict)
     return result
