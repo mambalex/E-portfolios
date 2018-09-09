@@ -70,7 +70,12 @@ def change_user_email(username, new_email):
     change_user_info(username, "email", new_email)
 
 def change_user_type(username, type_code):
-    change_user_info(username, "type", type_code)
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "update user_info set type = {} where username = '{}';".format(type_code, username)
+    database_object.update(sql)
+    database_object.close()
 
 def change_user_photo(username, photo_addr):
     change_user_info(username, "photo", photo_addr)
