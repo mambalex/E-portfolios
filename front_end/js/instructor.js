@@ -5,6 +5,7 @@ $(document).on('click', '.openings', function(e){
 	$('.connections').css('border-bottom', 'none');
 	$('.add-jobs').show();
 	$('.candidates-container').hide();
+    $('.connections-container').hide();
 	$('.jobs-container').css('display','flex');
 })
 
@@ -32,4 +33,54 @@ $(document).on('click', '.connections', function(e){
 
 
 
+
+
+$(document).on('click', '.candidate-info', function(e){
+    e.preventDefault();
+    $('.candidate-popup').css('display','flex');
+    $('.job-popup').hide();
+})
+
+$(document).on('click', '.candidate-popup-close', function(e){
+    e.preventDefault();
+    $('.candidate-popup').hide();
+})
+
+
+
+
+$(document).on('click', '.info', function(e){
+    e.preventDefault();
+    $('.job-popup').css('display','flex');
+})
+
+$(document).on('click', '.job-popup-close', function(e){
+    e.preventDefault();
+    $('.job-popup').hide();
+})
+
+
+
+
+$(document).on('click', '.close-connection-item', function(e){
+    e.preventDefault();
+    $(this).parent().parent().hide();
+})
+
+
+
+
+
+
+$(document).on('click', '.add-connections-btn', function(e){
+    e.preventDefault();
+    $('.make-connections').css('display','flex');
+    $('.job-popup').hide();
+    $('.candidate-popup').hide();
+})
+
+$(document).on('click', '.make-connections-close', function(e){
+    e.preventDefault();
+    $('.make-connections').hide();
+})
 
