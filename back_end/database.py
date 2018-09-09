@@ -476,7 +476,12 @@ def convert_result_to_dict(temp_result, key_list):
     for tuples in temp_result:
         temp_dict = {}
         for i in range(len(tuples)):
-            temp_dict[key_list[i]] = tuples[i].rstrip()
+            if isinstance(tuples[i], int):
+                temp_dict[key_list[i]] = tuples[i]
+            elif tuples[i] is None:
+                temp_dict[key_list[i]] = "None"
+            else:
+                temp_dict[key_list[i]] = tuples[i].rstrip()
         result.append(temp_dict)
     return result
 
