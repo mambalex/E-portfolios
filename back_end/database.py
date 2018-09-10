@@ -70,7 +70,12 @@ def change_user_email(username, new_email):
     change_user_info(username, "email", new_email)
 
 def change_user_type(username, type_code):
-    change_user_info(username, "type", type_code)
+    dbconfig = {"dbname": "comp9900"}
+    database_object = database_lib.Database_object(dbconfig)
+    database_object.open()
+    sql = "update user_info set type = {} where username = '{}';".format(type_code, username)
+    database_object.update(sql)
+    database_object.close()
 
 def change_user_photo(username, photo_addr):
     change_user_info(username, "photo", photo_addr)
@@ -471,7 +476,12 @@ def convert_result_to_dict(temp_result, key_list):
     for tuples in temp_result:
         temp_dict = {}
         for i in range(len(tuples)):
-            temp_dict[key_list[i]] = tuples[i]
+            if isinstance(tuples[i], int):
+                temp_dict[key_list[i]] = tuples[i]
+            elif tuples[i] is None:
+                temp_dict[key_list[i]] = "None"
+            else:
+                temp_dict[key_list[i]] = tuples[i].rstrip()
         result.append(temp_dict)
     return result
 
@@ -484,7 +494,7 @@ def convert_user_info(temp_result):
         temp_dict["email"] = temp_tuple[3].rstrip()
         temp_dict["location"] = temp_tuple[4]
         temp_dict["type"] = temp_tuple[5]
-        temp_dict["description"] = temp_tuple[6]
+        temp_dict["description"] = temp_tuple[6].rstrip()
         temp_dict["photo"] = temp_tuple[7]
         result.append(temp_dict)
     return result
