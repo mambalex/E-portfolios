@@ -1,3 +1,4 @@
+
 $(document).on('click', '.openings', function(e){
 	e.preventDefault();
 	$(this).css('border-bottom', '15px solid rgb(23,150,25)');
@@ -82,5 +83,61 @@ $(document).on('click', '.add-connections-btn', function(e){
 $(document).on('click', '.make-connections-close', function(e){
     e.preventDefault();
     $('.make-connections').hide();
+})
+
+$(document).ready(function() {
+    $('.drag-job, .drag-candidate').draggable({
+        containment: '.make-connections', revert: true, cursor: 'pointer',
+		start: function () {
+            title = $(this).find('.title').text();
+        }
+    })
+})
+
+$(document).on('click', '.close-target', function(e){
+    e.preventDefault();
+    $(this).parent().remove();
+})
+
+
+
+
+$('.target-job').droppable({ accept:'.drag-job',
+    drop: function(){
+        if($('.job-drop-box').children().length === 0){
+            $('.job-drop-box').append("<li ><i class='fas fa-backspace close-target'></i><div class='title'>" + title + "</div><div class='info saved'><button>More info</button></div></li>")
+        }
+    }
+})
+
+$('.target-candidate').droppable({ accept:'.drag-candidate',
+    drop: function(){
+        if($('.candidate-drop-box').children().length === 0){
+            $('.candidate-drop-box').append("<li ><i class='fas fa-backspace close-target'></i><div class='title'>" + title + "</div><div class='info saved'><button>More info</button></div></li>")
+        }
+    }
+})
+
+$(document).on('click', '.recommend-btn', function(e){
+    e.preventDefault();
+    job_title = $('.job-drop-box').find('.title').text();
+    candidate_name = $('.candidate-drop-box').find('.title').text();
+	$(".connection-list").append(
+		"<li class=\"connection-item\">\n" +
+        "    <div><i class=\"fas fa-backspace close-connection-item\"></i></div>\n" +
+        "<div class=\"can-job-link\">\n" +
+        "    <div class=\"job\">\n" +
+        "    <div class=\"title\">"+ job_title + "</div>\n" +
+        "<div class=\"info saved\"><button>More info</button></div>\n" +
+        "</div>\n" +
+        "<div class=\"link\"><i class=\"fas fa-link\"></i></div>\n" +
+        "<div class=\"candidate\">\n" +
+        "    <div class=\"title\">"+ candidate_name + "</div>\n" +
+        "<div class=\"candidate-info saved\"><button>More info</button></div>\n" +
+        "</div>\n" +
+        "</div>\n" +
+        "\n" +
+        "</li>"
+	)
 })
 

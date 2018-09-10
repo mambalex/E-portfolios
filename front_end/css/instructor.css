@@ -14,6 +14,8 @@ body{
 	margin: 0 !important;
 	padding: 0 !important;
 }
+
+
 .main-container{
 /*	position: relative;*/
 	padding: 0 !important;
@@ -856,17 +858,19 @@ body{
 .main-container .bottom .connections-container .connection-list{
 	display: flex;
 	flex-direction: column;
-	background-color: white;
-	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
-	transition-delay: 0.2s;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 	padding: 0;
+	list-style: none;
 }
 
 .main-container .bottom .connections-container .connection-list .connection-item{
+	background-color: white;
 	position: relative;
 	height: 90px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+	margin-bottom: 20px;
+	transition: box-shadow 0.2s cubic-bezier(0.4, 1, 0.2, 0);
+	transition-delay: 0.2s;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 .main-container .bottom .connections-container .connection-list .connection-item .can-job-link{
@@ -915,6 +919,7 @@ body{
 	border: none;
 	padding: 5px 10px;
 	width: 80px;
+	margin-top: 0;
 
 }
 
@@ -951,8 +956,8 @@ body{
 
 .main-container .bottom .connections-container .make-connections{
 	/*display: flex;*/
-	width:80%;
-	margin-left: 10%;
+	width:84%;
+	margin-left: 8%;
 	position: absolute;
 	display: none;
 	flex-direction: column;
@@ -980,7 +985,7 @@ body{
 }
 
 .main-container .bottom .connections-container .make-connections .target-boxes .arrow{
-	margin-top: 70px;
+	margin-top: 100px;
 	height: 50px;
 }
 
@@ -1001,9 +1006,46 @@ body{
 .main-container .bottom .connections-container .make-connections .box{
 	border: 1px solid black;
 	height: 70%;
+	list-style: none;
+	position: relative;
+}
+
+.main-container .bottom .connections-container .make-connections .box  li{
+	width: 99%;
+	height: 60px;
+	border: 1px solid rgba(0, 0, 0, 0.26);
+	display: flex;
+	position: absolute;
+	left: 0;
+	top:20px;
+}
+.main-container .bottom .connections-container .make-connections .box  li>i{
+	position: absolute;
+	top:0;
+	right: 0;
+	color: rgb(48,178,68);
+	cursor: pointer;
+}
+
+.main-container .bottom .connections-container .make-connections .box li .title{
+	font-size: 14px;
+	text-align: left;
+	padding:20px 5px 0 20px;
+	width: 70%;
+	overflow: hidden;
+}
+.main-container .bottom .connections-container .make-connections .target-boxes .box li .saved{
+	height: 23px;
+	width: 30%;
+	margin-right:10px ;
+}
+.main-container .bottom .connections-container .make-connections .target-boxes .box li .saved button{
+	padding-bottom: 14px;
+	cursor: pointer;
 }
 
 .main-container .bottom .connections-container .make-connections .recommend{
+	margin-top:30px;
 	text-align: center;
 	height: 30px;
 }
@@ -1058,8 +1100,9 @@ body{
 .main-container .bottom .connections-container .make-connections .saved-jobs-candidates .box ul li{
 	width: 100%;
 	height: 60px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+	border: 1px solid rgba(0, 0, 0, 0.26);
 	display: flex;
+	cursor: pointer;
 }
 .main-container .bottom .connections-container .make-connections .saved-jobs-candidates .box ul li .title{
 	font-size: 14px;
@@ -1068,11 +1111,11 @@ body{
 	width: 70%;
 	overflow: hidden;
 }
-.main-container .bottom .connections-container .make-connections .saved-jobs-candidates .box ul li .saved{
+li .saved{
 	height: 25px;
 	width: 30%;
 }
-.main-container .bottom .connections-container .make-connections .saved-jobs-candidates .box ul li .saved button{
+li .saved button{
 	float: right;
 	background-color: rgb(48,178,68);
 	height:100%;

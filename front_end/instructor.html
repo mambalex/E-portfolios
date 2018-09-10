@@ -9,7 +9,7 @@
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
 
-	 <link rel="stylesheet" type="text/css" href="css/font/flaticon.css"> 
+	<link rel="stylesheet" type="text/css" href="css/font/flaticon.css">
 
 </head>
 <body>
@@ -442,8 +442,8 @@
 <!--connections-container-->
 			<div class="connections-container">
 				<div class="add-connections"><i class="fas fa-plus-circle fa-2x add-connections-btn"></i></div>
-				<div class="connection-list">
-					<div class="connection-item">
+				<ul class="connection-list">
+					<li class="connection-item">
 						<div><i class="fas fa-backspace close-connection-item"></i></div>
 						<div class="can-job-link">
 							<div class="job">
@@ -457,29 +457,35 @@
 							</div>
 						</div>
 
-					</div>
-				</div>
+					</li>
+				</ul>
 		        <div class="make-connections">
 					<div><i class="fas fa-backspace make-connections-close"></i></div>
 					 <div class="target-boxes">
 						<div class="target-job boxes">
 							<div class="title">Target Job</div>
-							<div class="box"></div>
+							<ul class="box job-drop-box">
+								<li>
+									<i class="fas fa-backspace close-target"></i>
+								<div class="title">Front-End Developer</div>
+								<div class="info saved"><button>More info</button></div>
+								</li>
+							</ul>
 						</div>
 						 <div class="arrow"><i class="fas fa-exchange-alt"></i></div>
 						<div class="target-candidate boxes">
 							<div class="title">Target Candidate</div>
-							<div class="box"></div>
+							<ul class="box candidate-drop-box"></ul>
 						</div>
 					 </div>
-					<div class="recommend"><button>Recommend</button></div>
+					<div class="recommend"><button class="recommend-btn">Recommend</button></div>
 
 					<div class="saved-jobs-candidates">
 						<div class="save-jobs boxes">
 							<div class="title">Saved Jobs</div>
 							<div class="box">
 								<ul>
-									<li>
+									<li class="drag-job">
 										<div class="title">Front-End Developer</div>
 										<div class="info saved"><button>More info</button></div>
 									</li>
@@ -490,7 +496,7 @@
 							<div class="title">Saved Candidates</div>
 							<div class="box">
 								<ul>
-									<li>
+									<li class="drag-candidate">
 										<div class="title">Alex Zhang</div>
 										<div class="candidate-info saved"><button>More info</button></div>
 									</li>
@@ -506,6 +512,6 @@
 	 </div>
 
 </body>
-
+<script src='js/jquery-ui.js'></script>
 <script type="text/javascript" src="js/instructor.js"></script>
 </html>
