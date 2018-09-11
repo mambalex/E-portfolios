@@ -34,8 +34,9 @@
 	 					<div class="search-bar">
 	 						<form class="search" action="">
 	 								<div class="input-wrapper">
-  										<input type="search" name="keyword" placeholder="Search here..." ><!--
+  										<input type="search" name="keyword" placeholder="Search jobs here..." ><!--
   										 --><input type="search" name="location" placeholder="Location" r>
+
   									</div>
   									<div class="plus-minus"><i class="fas fa-plus plus"></i><i class="fas fa-minus minus"></i></div>
   									<div class="tags">
@@ -54,7 +55,7 @@
   										<div class="wrapper">
 		  									<div class="left">
 		  										<div>
-		  											<input type="text" name="tags" placeholder="tags" class="tag-input">
+		  											<input type="text" name="tags" placeholder="tags" class="job-tag">
 		  											<select>
 		  												<option value="Java">Java</option>
 		  												<option value="Python">Python</option>
@@ -63,7 +64,6 @@
 		  											</select>
 		  										</div>
 		  										<div class="lb">
-		  											<input type="text" name="user" placeholder="User">
 		  											<button class="plus-tag"><i class="fas fa-plus"></i></button>
 		  										</div>
 
@@ -94,11 +94,69 @@
 
 
 		  							</div>
-  										
-	  							
   									</div>
-  									<button type="submit" class="search-btn" ><a href="result.html">Search</a></button>
-							</form>   
+									<button type="submit" formaction='result.html'>Search</button>
+							</form>
+
+
+							<form class="search-candidate">
+								<div class="input-wrapper">
+									<input type="search" name="keyword" placeholder="Search candidates here..." ><!--
+  										 --><input type="search" name="location" placeholder="Location" r>
+
+								</div>
+								<div class="can-plus-minus"><i class="fas fa-plus plus"></i><i class="fas fa-minus minus"></i></div>
+								<div class="tags">
+									<div class="tag">
+										<div class="title">Tags:</div>
+										<!-- <input type="text" name="" class="all-tags"> -->
+
+										<div class="all-can-tags">
+											<ul class="can-labels">
+												<li><span class="tg">leadership</span> <span class="x">x</span></li>
+												<li><span class="tg">Java</span>  <span class="x">x</span></li>
+											</ul>
+										</div>
+									</div>
+
+									<div class="wrapper">
+										<div class="left">
+											<div>
+												<input type="text" name="tags" placeholder="tags" class="candidate-tag">
+												<select>
+													<option value="Java">Java</option>
+													<option value="Python">Python</option>
+													<option value="C">C</option>
+													<option value="C#">C#</option>
+												</select>
+											</div>
+											<div class="lb">
+												<button class="plus-can-tag"><i class="fas fa-plus"></i></button>
+											</div>
+
+										</div>
+
+										<div class="right">
+
+											<select>
+												<option value="" selected disabled hidden>Job Types</option>
+												<option value="Full-time">Full-time</option>
+												<option value="Part-time">Part-time</option>
+												<option value="Contract/Temp">Contract/Temp</option>
+												<option value="Casual/Vacation">Casual/Vacation</option>
+											</select>
+										</div>
+
+
+									</div>
+
+
+								</div>
+								<button type="submit" formaction='result.html'>Search</button>
+							</form>
+
+
+							<div class="search-candidate-btn"><button type="button">Finding Candidates?</button></div>
 	 					</div>
 	          		</div>
     			</div>

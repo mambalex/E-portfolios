@@ -50,6 +50,7 @@ body{
 	margin-right: 20px;
 	height: 60px;
 	display: inline-block;
+	padding: 0;
 }
 .main-container nav ul li{
 	height: 60px;
@@ -57,13 +58,17 @@ body{
 	display: inline-block;
 	text-align: center;
 	cursor: pointer;
+	margin-top: 20px;
+
 }
-.main-container nav ul li h4{
-	font-weight: 400;
+.main-container nav ul li a{
+	text-decoration: none;
+	color:white;
 }
 
-.main-container nav ul li:hover{
-	background-color: #ffcc00;
+
+.main-container nav ul li a:hover{
+	color: #ffcc00;
 }
 
 .main-container>.bottom{

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 $('.side-nav li').on('click', function(e){
 	e.preventDefault();
 	$('.side-nav li').removeClass('selected');
