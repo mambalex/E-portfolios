@@ -18,6 +18,7 @@ $(".skill-form").on('click','button', function(e){
 	var flag = 1;
 	e.preventDefault();
 	var newVar = $(".input").val();
+	var new_percent = $("#percentage").val();
 	if(newVar.match(/^ *$/) === null){
 		$(".skill-list li").each(function(){
 			// console.log(newVar);
@@ -27,7 +28,7 @@ $(".skill-form").on('click','button', function(e){
 				alert("The skill already exists")
 			}
 		});
-		if(flag === 1){$(".skill-list").append("<li><div class='text'>" + newVar + "</div> <i class='far fa-trash-alt'></i></li>");}
+		if(flag === 1){$(".skill-list").append("<li><div class='text'>" + newVar + "</div><div class='percent'>" + new_percent + "</div><i class='far fa-trash-alt'></i></li>");}
 	}
 })
 
